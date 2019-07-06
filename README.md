@@ -7,16 +7,63 @@ Package license: GPL (>= 2)
 
 Feedstock license: BSD 3-Clause
 
-Summary: Provides the function sp() for generating the support points proposed in Mak and Joseph (2017) <arXiv:1609.01811>. Support points are representative points of a possibly non-uniform  distribution, and can be used as optimal sampling or integration points for a distribution of choice. The provided function sp() can be used to generate support points for standard distributions or for reducing big data (e.g., from Markov-chain Monte Carlo methods). This work was supported by USARO grant W911NF-14-1-0024 and NSF DMS grant 1712642.
+Summary: The 'support' package provides the functions sp() and sp_seq() for computing the support points in Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used as a representative sample of a desired distribution, or a representative reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain Monte Carlo sample chains). This work was supported by USARO grant W911NF-14-1-0024 and NSF DMS grant 1712642.
 
 
 
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-support-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-support-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-support-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-support-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-support-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-support-feedstock/branch/master)
+
+<table><tr>
+    <td>Appveyor</td>
+    <td>
+      <a href="https://ci.appveyor.com/project/conda-forge/r-support-feedstock/branch/master">
+        <img alt="windows" src="https://img.shields.io/appveyor/ci/conda-forge/r-support-feedstock/master.svg?label=Windows">
+      </a>
+    </td>
+  </tr>
+    
+  <tr>
+    <td>Azure</td>
+    <td>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1691&branchName=master">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-support-feedstock?branchName=master">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>linux_target_platformlinux-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1691&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-support-feedstock?branchName=master&jobName=linux&configuration=linux_target_platformlinux-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_target_platformosx-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1691&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-support-feedstock?branchName=master&jobName=osx&configuration=osx_target_platformosx-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_target_platformwin-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1691&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-support-feedstock?branchName=master&jobName=win&configuration=win_target_platformwin-64" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </td>
+  </tr>
+![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
+</table>
 
 Current release info
 ====================
@@ -49,6 +96,8 @@ conda search r-support --channel conda-forge
 
 About conda-forge
 =================
+
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -104,3 +153,9 @@ In order to produce a uniquely identifiable distribution:
  * If the version of a package **is** being increased, please remember to return
    the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.
+
+Feedstock Maintainers
+=====================
+
+* [@conda-forge/r](https://github.com/conda-forge/r/)
+
