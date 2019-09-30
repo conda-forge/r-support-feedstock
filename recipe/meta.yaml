@@ -1,4 +1,4 @@
-{% set version = '0.1.3' %}
+{% set version = '0.1.4' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/support_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/support/support_{{ version }}.tar.gz
-  sha256: 46e8ae5b5cba96339314fc49ebf182eea39f12bfbfde01678a93d52e1ec79b3f
+  sha256: 07b7ffd0dc5bdaeb266ee79bf6bf7616e880cfc14432b25512613841d38250f9
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -36,9 +36,6 @@ requirements:
     - r-mhadaptive
     - r-rcpp >=0.12.4
     - r-rcpparmadillo
-    - r-doparallel
-    - r-matrixstats
-    - r-nloptr
     - r-randtoolbox
   run:
     - r-base
@@ -47,9 +44,6 @@ requirements:
     - r-mhadaptive
     - r-rcpp >=0.12.4
     - r-rcpparmadillo
-    - r-doparallel
-    - r-matrixstats
-    - r-nloptr
     - r-randtoolbox
 
 test:
@@ -59,15 +53,16 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=support
-  license: GPL (>= 2)
+  license: GPL-2
   summary: The 'support' package provides the functions sp() and sp_seq() for computing the support
     points in Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be
     used as a representative sample of a desired distribution, or a representative reduction
     of a big dataset (e.g., an "optimal" thinning of Markov-chain Monte Carlo sample
     chains). This work was supported by USARO grant W911NF-14-1-0024 and NSF DMS grant
     1712642.
-  license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
@@ -76,16 +71,16 @@ extra:
 # Package: support
 # Type: Package
 # Title: Support Points
-# Version: 0.1.3
+# Version: 0.1.4
 # Author: Simon Mak
-# Maintainer: Simon Mak <smak6@gatech.edu>
+# Maintainer: Simon Mak <sm769@duke.edu>
 # Description: The 'support' package provides the functions sp() and sp_seq() for computing the support points in Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used as a representative sample of a desired distribution, or a representative reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain Monte Carlo sample chains). This work was supported by USARO grant W911NF-14-1-0024 and NSF DMS grant 1712642.
 # License: GPL (>= 2)
 # LazyData: TRUE
-# Imports: Rcpp (>= 0.12.4), randtoolbox, matrixStats, doParallel, nloptr, MHadaptive
+# Imports: Rcpp (>= 0.12.4), randtoolbox, MHadaptive
 # LinkingTo: Rcpp, RcppArmadillo, BH
-# RoxygenNote: 6.0.1
+# RoxygenNote: 6.1.1
 # NeedsCompilation: yes
-# Packaged: 2019-05-23 19:11:09 UTC; smak6
+# Packaged: 2019-07-15 05:55:02 UTC; Simon
 # Repository: CRAN
-# Date/Publication: 2019-05-23 19:30:03 UTC
+# Date/Publication: 2019-07-15 13:40:03 UTC
