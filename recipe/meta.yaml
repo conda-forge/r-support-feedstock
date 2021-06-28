@@ -1,4 +1,4 @@
-{% set version = '0.1.4' %}
+{% set version = "0.1.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/support_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/support/support_{{ version }}.tar.gz
-  sha256: 07b7ffd0dc5bdaeb266ee79bf6bf7616e880cfc14432b25512613841d38250f9
+  sha256: 79850745f8549c3f718ecd272226a0c245245ad4e0505433c156711ad4ae463f
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -30,20 +30,23 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-bh
     - r-mhadaptive
     - r-rcpp >=0.12.4
     - r-rcpparmadillo
+    - r-nloptr
     - r-randtoolbox
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-bh
+    #- r-bh
     - r-mhadaptive
     - r-rcpp >=0.12.4
     - r-rcpparmadillo
+    - r-nloptr
     - r-randtoolbox
 
 test:
@@ -53,16 +56,12 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=support
-  license: GPL-2
-  summary: The 'support' package provides the functions sp() and sp_seq() for computing the support
-    points in Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be
-    used as a representative sample of a desired distribution, or a representative reduction
-    of a big dataset (e.g., an "optimal" thinning of Markov-chain Monte Carlo sample
-    chains). This work was supported by USARO grant W911NF-14-1-0024 and NSF DMS grant
-    1712642.
+  license: GPL-2.0-or-later
+  summary: The 'support' package provides the functions sp() and sp_seq() for computing the support points in Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used as a representative sample of a desired distribution, or a representative reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain
+    Monte Carlo sample chains). This work was supported by USARO grant W911NF-14-1-0024 and NSF DMS grant 1712642.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
