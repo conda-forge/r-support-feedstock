@@ -30,20 +30,23 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-bh
     - r-mhadaptive
     - r-rcpp >=0.12.4
     - r-rcpparmadillo
+    - r-nloptr
     - r-randtoolbox
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-bh
+    #- r-bh
     - r-mhadaptive
     - r-rcpp >=0.12.4
     - r-rcpparmadillo
+    - r-nloptr
     - r-randtoolbox
 
 test:
@@ -53,7 +56,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=support
-  license: GPL-2
+  license: GPL-2.0-or-later
   summary: The 'support' package provides the functions sp() and sp_seq() for computing the support points in Mak and Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used as a representative sample of a desired distribution, or a representative reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain
     Monte Carlo sample chains). This work was supported by USARO grant W911NF-14-1-0024 and NSF DMS grant 1712642.
   license_family: GPL2
